@@ -6,16 +6,15 @@
 /*   By: yjinnouc <yjinnouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:20:03 by yjinnouc          #+#    #+#             */
-/*   Updated: 2025/01/25 22:37:32 by yjinnouc         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:13:16 by yjinnouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name)
-  : name(name), hitPoints(10), energyPoints(10), attackDamage(0){
-    std::cout << "ClapTrap default constructor called" \
-      << " with the name of " << name << std::endl;
+// Orthodox Canonical Form
+ClapTrap::ClapTrap(){
+  std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
@@ -46,6 +45,14 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &lhs){
   return *this;
 }
 
+// Opitional constructor
+ClapTrap::ClapTrap(const std::string name)
+  : name(name), hitPoints(10), energyPoints(10), attackDamage(0){
+    std::cout << "ClapTrap default constructor called" \
+      << " with the name of " << name << std::endl;
+}
+
+// Getters and Setters
 int ClapTrap::getHitPoints(){
   return this->hitPoints;
 }
@@ -78,6 +85,7 @@ void ClapTrap::setName(std::string newName){
   this->name = newName;
 }
 
+// Member functions
 /*
 When ClapTrack attacks, it causes its target to lose <attack damage> hit points.
 When ClapTrap repairs itself, it gets <amount> hit points back. Attacking and repairing
@@ -117,7 +125,7 @@ void ClapTrap::takeDamage(unsigned int amount){
       << " took " << tookDamage << " points of damage!" << std::endl;
     if (hitPoints == 0){
       std::cout \
-        << "ClapTrap" << name \
+        << "ClapTrap " << name \
         << " is dead!" << std::endl;
     }
   }
@@ -127,7 +135,7 @@ void ClapTrap::beRepaired(unsigned int amount){
   if (hitPoints == 0){
     std::cout \
       << "ClapTrap " << name \
-      << " is dead!" << std::endl;
+      << " is already  dead!" << std::endl;
     return;
   } else if (energyPoints == 0){
     std::cout \
@@ -143,6 +151,7 @@ void ClapTrap::beRepaired(unsigned int amount){
   }
 }
 
+// Helper functions
 int ClapTrap::min(int a, int b){
   return a < b ? a : b;
 }

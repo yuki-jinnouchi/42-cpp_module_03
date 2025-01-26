@@ -20,8 +20,11 @@ SOURCES_DIR =		.
 OBJECTS_DIR =		objs
 
 # Files
-INCLUDES =	incl/
-SOURCES =		$(wildcard $(SOURCES_DIR)/*.cpp)
+# INCLUDES =	$(wildcard $(INCLUDES_DIR)/*.hpp)
+INCLUDES =	ClapTrap.hpp
+# SOURCES =		$(wildcard $(SOURCES_DIR)/*.cpp)
+SOURCES =		main.cpp \
+						ClapTrap.cpp
 OBJECTS =		$(patsubst $(SOURCES_DIR)/%.cpp,$(OBJECTS_DIR)/%.o,$(SOURCES))
 
 # Compiler & Flags
