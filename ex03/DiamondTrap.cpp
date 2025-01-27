@@ -6,7 +6,7 @@
 /*   By: yjinnouc <yjinnouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 16:31:37 by yjinnouc          #+#    #+#             */
-/*   Updated: 2025/01/27 21:16:39 by yjinnouc         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:46:56 by yjinnouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ DiamondTrap::~DiamondTrap() {
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &src)
-  : ClapTrap(src){
+  : ClapTrap(src), ScavTrap(src), FragTrap(src){
   std::cout \
     << "DiamondTrap copy constructor" \
     << " from " << src.getName() \
