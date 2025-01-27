@@ -6,7 +6,7 @@
 /*   By: yjinnouc <yjinnouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:20:03 by yjinnouc          #+#    #+#             */
-/*   Updated: 2025/01/26 16:13:16 by yjinnouc         ###   ########.fr       */
+/*   Updated: 2025/01/27 21:17:11 by yjinnouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,74 +14,76 @@
 
 // Orthodox Canonical Form
 ClapTrap::ClapTrap(){
-  std::cout << "ClapTrap default constructor called" << std::endl;
+  std::cout << "ClapTrap default constructor called." << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
   std::cout \
-    << "ClapTrap " << name \
-    << " destructor called" << std::endl;
+    << "ClapTrap " << getName() \
+    << " destructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src)
   : name(src.name), hitPoints(src.hitPoints), \
     energyPoints(src.energyPoints), attackDamage(src.attackDamage){
-    std::cout \
-      << "ClapTrap " << src.name \
-      << " copy constructor called" << std::endl;
+  std::cout \
+    << "ClapTrap copy constructor" \
+    << " from " << src.getName() \
+    << " called." << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &lhs){
   std::cout \
     << "ClapTrap assignation operator " \
     << "from " << lhs.name \
-    << " called" << std::endl;
+    << " called." << std::endl;
   if (this == &lhs)
     return *this;
-  this->name = lhs.name;
-  this->hitPoints = lhs.hitPoints;
-  this->energyPoints = lhs.energyPoints;
-  this->attackDamage = lhs.attackDamage;
+  setName(lhs.name);
+  setHitPoints(lhs.hitPoints);
+  setEnergyPoints(lhs.energyPoints);
+  setAttackDamage(lhs.attackDamage);
   return *this;
 }
 
-// Opitional constructor
+// Optional constructor
 ClapTrap::ClapTrap(const std::string name)
   : name(name), hitPoints(10), energyPoints(10), attackDamage(0){
-    std::cout << "ClapTrap default constructor called" \
+    std::cout \
+      << "ClapTrap default constructor called" \
       << " with the name of " << name << std::endl;
 }
 
 // Getters and Setters
-int ClapTrap::getHitPoints(){
+int ClapTrap::getHitPoints(void) const {
   return this->hitPoints;
 }
 
-void ClapTrap::setHitPoints(int newHitPoints){
+void ClapTrap::setHitPoints(int const newHitPoints){
   this->hitPoints = newHitPoints;
 }
 
-int ClapTrap::getEnergyPoints(){
+int ClapTrap::getEnergyPoints(void) const {
   return this->energyPoints;
 }
 
-void ClapTrap::setEnergyPoints(int newEnergyPoints){
+void ClapTrap::setEnergyPoints(int const newEnergyPoints){
   this->energyPoints = newEnergyPoints;
 }
 
-int ClapTrap::getAttackDamage(){
+int ClapTrap::getAttackDamage(void) const {
   return this->attackDamage;
 }
 
-void ClapTrap::setAttackDamage(int newAttackDamage){
+void ClapTrap::setAttackDamage(int const newAttackDamage){
   this->attackDamage = newAttackDamage;
 }
 
-std::string ClapTrap::getName(){
+std::string ClapTrap::getName(void) const {
   return this->name;
 }
 
-void ClapTrap::setName(std::string newName){
+void ClapTrap::setName(std::string const newName){
   this->name = newName;
 }
 
@@ -95,37 +97,41 @@ instances should not interact directly with one another, and the parameters will
 to another instance of ClapTrap.
 */
 
-void ClapTrap::attack(const std::string& target){
+void ClapTrap::attack(const std::string &target){
   if (hitPoints == 0){
     std::cout \
-      << "ClapTrap " << target \
-      << " is dead!" << std::endl;
+      << "ClapTrap " << getName() \
+      << " is already dead!" << std::endl;
     return;
   } else if (energyPoints == 0){
-    std::cout << "ClapTrap " << target << " has no energy points!" << std::endl;
+    std::cout \
+      << "ClapTrap " << getName() \
+      << " has no more energy points!" << std::endl;
     return;
   } else {
     std::cout \
-      << "ClapTrap " << name \
+      << "ClapTrap " << getName() \
       << " attacks " << target \
-      << ", causing " << attackDamage << " points of damage!" << std::endl;
-    energyPoints -= 1;
+      << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+    setEnergyPoints(getEnergyPoints() - 1);
   }
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
   if (hitPoints == 0){
-    std::cout << "ClapTrap is already dead!" << std::endl;
+    std::cout \
+      << getName() \
+      << " is already dead!" << std::endl;
     return;
   } else {
     int tookDamage = min(hitPoints, amount);
     hitPoints -= tookDamage;
     std::cout \
-      << "ClapTrap " << name \
+      << getName() \
       << " took " << tookDamage << " points of damage!" << std::endl;
     if (hitPoints == 0){
       std::cout \
-        << "ClapTrap " << name \
+        << getName() \
         << " is dead!" << std::endl;
     }
   }
@@ -134,24 +140,24 @@ void ClapTrap::takeDamage(unsigned int amount){
 void ClapTrap::beRepaired(unsigned int amount){
   if (hitPoints == 0){
     std::cout \
-      << "ClapTrap " << name \
+      << getName() \
       << " is already  dead!" << std::endl;
     return;
   } else if (energyPoints == 0){
     std::cout \
-      << "ClapTrap " << name \
+      << getName() \
       << " has no energy points!" << std::endl;
     return;
   } else {
     std::cout \
-      << "ClapTrap " << name \
+      << getName() \
       << " be repaired " << amount << " points!" << std::endl;
-    hitPoints += amount;
-    energyPoints -= 1;
+    setHitPoints(getHitPoints() + amount);
+    setEnergyPoints(getEnergyPoints() - 1);
   }
 }
 
 // Helper functions
-int ClapTrap::min(int a, int b){
+int ClapTrap::min(int const a, int const b) const {
   return a < b ? a : b;
 }

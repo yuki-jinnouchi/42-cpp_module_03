@@ -21,11 +21,17 @@ OBJECTS_DIR =		objs
 
 # Files
 # INCLUDES =	$(wildcard $(INCLUDES_DIR)/*.hpp)
-INCLUDES =	./ClapTrap.hpp
+INCLUDES =	./ClapTrap.hpp \
+						./ScavTrap.hpp \
+						./FragTrap.hpp \
+						./DiamondTrap.hpp
 # SOURCES =		$(wildcard $(SOURCES_DIR)/*.cpp)
 SOURCES =		./main.cpp \
-						./ClapTrap.cpp
-OBJECTS =		$(patsubst $(SOURCES_DIR)/%.cpp, $(OBJECTS_DIR)/%.o, $(SOURCES))
+						./ClapTrap.cpp \
+						./ScavTrap.cpp \
+						./FragTrap.cpp \
+						./DiamondTrap.cpp
+OBJECTS =		$(patsubst $(SOURCES_DIR)/%.cpp,$(OBJECTS_DIR)/%.o,$(SOURCES))
 
 # Compiler & Flags
 CXX =				c++
