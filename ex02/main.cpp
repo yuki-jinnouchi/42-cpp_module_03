@@ -6,23 +6,25 @@
 /*   By: yjinnouc <yjinnouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:20:10 by yjinnouc          #+#    #+#             */
-/*   Updated: 2025/01/27 20:29:57 by yjinnouc         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:40:00 by yjinnouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <string>
 #include <iostream>
 
+// Test Code for ScavTrap
 int main()
 {
     std::cout << "# Set up" << std::endl;
-
-    ClapTrap ct01("Alice");
-    ClapTrap ct02("Bob");
-    ClapTrap ct03(ct02);
-    ClapTrap ct04("Charlie");
-    ClapTrap ct05;
+    FragTrap ct01("Alice");
+    FragTrap ct02("Bob") ;
+    FragTrap ct03(ct02);
+    FragTrap ct04("Charlie");
+    FragTrap ct05;
     ct05 = ct04;
     std::cout << std::endl;
 
@@ -30,44 +32,42 @@ int main()
     ct01.attack("Enemy");
     ct01.takeDamage(5);
     ct01.beRepaired(3);
+    ct01.highFivesGuys();
     ct03.attack("Enemy");
     ct03.takeDamage(5);
+    ct03.highFivesGuys();
     ct03.beRepaired(3);
     ct05.attack("Enemy");
+    ct05.highFivesGuys();
     ct05.takeDamage(5);
     ct05.beRepaired(3);
     std::cout << std::endl;
 
     std::cout << "# Battle results:" << std::endl;
     std::cout \
-        << "ct01: " << ct01.getName() \
-        << ", hit points: " << ct01.getHitPoints() \
-        << ", energy points: " << ct01.getEnergyPoints() \
-        << ", attack damage: " << ct01.getAttackDamage() \
+        << "ScavTrap ct01 " << ct01.getName() \
+        << " hit points: " << ct01.getHitPoints() \
+        << " energy points: " << ct01.getEnergyPoints() \
         << std::endl;
     std::cout \
-        << "ct02: " << ct02.getName() \
-        << ", hit points: " << ct02.getHitPoints() \
-        << ", energy points: " << ct02.getEnergyPoints() \
-        << ", attack damage: " << ct02.getAttackDamage() \
+        << "ScavTrap ct02 " << ct02.getName() \
+        << " hit points: " << ct02.getHitPoints() \
+        << " energy points: " << ct02.getEnergyPoints() \
         << std::endl;
     std::cout \
-        << "ct03: " << ct03.getName() \
-        << ", hit points: " << ct03.getHitPoints() \
-        << ", energy points: " << ct03.getEnergyPoints() \
-        << ", attack damage: " << ct03.getAttackDamage() \
+        << "ScavTrap ct03 " << ct03.getName() \
+        << " hit points: " << ct03.getHitPoints() \
+        << " energy points: " << ct03.getEnergyPoints() \
         << std::endl;
     std::cout \
-        << "ct04: " << ct04.getName() \
-        << ", hit points: " << ct04.getHitPoints() \
-        << ", energy points: " << ct04.getEnergyPoints() \
-        << ", attack damage: " << ct04.getAttackDamage() \
+        << "ScavTrap ct04 " << ct04.getName() \
+        << " hit points: " << ct04.getHitPoints() \
+        << " energy points: " << ct04.getEnergyPoints() \
         << std::endl;
     std::cout \
-        << "ct05: " << ct05.getName() \
-        << ", hit points: " << ct05.getHitPoints() \
-        << ", energy points: " << ct05.getEnergyPoints() \
-        << ", attack damage: " << ct05.getAttackDamage() \
+        << "ScavTrap ct05 " << ct05.getName() \
+        << " hit points: " << ct05.getHitPoints() \
+        << " energy points: " << ct05.getEnergyPoints() \
         << std::endl;
     std::cout << std::endl;
 

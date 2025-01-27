@@ -6,7 +6,7 @@
 /*   By: yjinnouc <yjinnouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 16:25:13 by yjinnouc          #+#    #+#             */
-/*   Updated: 2025/01/27 19:01:48 by yjinnouc         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:55:27 by yjinnouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
   This member function displays a positive high fives request on the standard output.
 */
 
-class FragTrap :virtual public ClapTrap
+class FragTrap :public ClapTrap
 {
   private:
 

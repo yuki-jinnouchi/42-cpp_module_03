@@ -6,7 +6,7 @@
 /*   By: yjinnouc <yjinnouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 22:48:33 by yjinnouc          #+#    #+#             */
-/*   Updated: 2025/01/26 16:49:58 by yjinnouc         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:01:52 by yjinnouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
   keeper mode.
 */
 
-class ScavTrap :public ClapTrap
+class ScavTrap :virtual public ClapTrap
 {
   private:
 
@@ -39,17 +39,15 @@ class ScavTrap :public ClapTrap
     // Orthodox Canonical Form
     ScavTrap();
     ~ScavTrap();
-    ScavTrap(ScavTrap const &src);
-    ScavTrap & operator=(ScavTrap const &src);
+    ScavTrap(const ScavTrap &src);
+    ScavTrap & operator=(const ScavTrap &rhs);
 
-    // Opitional constructor
+    // Optional constructor
     ScavTrap(const std::string name);
 
     // Member functions
-    void attack(std::string const &target);
+    void attack(const std::string &target);
     void guardGate(void);
-
 };
-
 
 #endif
