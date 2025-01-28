@@ -6,7 +6,7 @@
 /*   By: yjinnouc <yjinnouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:20:10 by yjinnouc          #+#    #+#             */
-/*   Updated: 2025/01/27 19:22:52 by yjinnouc         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:37:18 by yjinnouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int main()
 
     std::cout << "# Battle results:" << std::endl;
     std::cout \
-        << "DiamondTrap ct01 " << ct01.getName() \
+        << "DiamondTrap ct01 " << ct01.getName()
         << " hit points: " << ct01.getHitPoints() \
         << " energy points: " << ct01.getEnergyPoints() \
         << std::endl;

@@ -6,7 +6,7 @@
 /*   By: yjinnouc <yjinnouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:20:07 by yjinnouc          #+#    #+#             */
-/*   Updated: 2025/01/27 18:54:01 by yjinnouc         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:24:10 by yjinnouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,13 @@ class ClapTrap{
 
     // Opitional constructor
     ClapTrap(const std::string name);
+    ClapTrap(const std::string name, const int hitPoints, const int energyPoints, const int attackDamage);
 
-    // Getters and Setters
-    int getHitPoints(void) const;
-    void setHitPoints(int const newHitPoints);
-    int getEnergyPoints(void) const;
-    void setEnergyPoints(int const energyPoints);
-    int getAttackDamage(void) const;
-    void setAttackDamage(int const attackDamage);
-    std::string getName(void) const;
-    void setName(std::string const name);
+    // Getters
+    std::string getName() const;
+    int getHitPoints() const;
+    int getEnergyPoints() const;
+    int getAttackDamage() const;
 
     // Member functions
     void attack(const std::string &target);
