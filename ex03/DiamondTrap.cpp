@@ -6,7 +6,7 @@
 /*   By: yjinnouc <yjinnouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 16:31:37 by yjinnouc          #+#    #+#             */
-/*   Updated: 2025/01/27 16:46:56 by yjinnouc         ###   ########.fr       */
+/*   Updated: 2025/01/28 13:37:08 by yjinnouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ DiamondTrap::DiamondTrap(DiamondTrap const &src)
     << "DiamondTrap copy constructor" \
     << " from " << src.getName() \
     << " called." << std::endl;
-  setName(src.getName());
   ClapTrap::setName(src.getName() + "_clap_name");
+  setName(src.getName());
 }
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs){
@@ -41,8 +41,8 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs){
     << " called." << std::endl;
   if (this == &rhs)
     return *this;
-  setName(rhs.getName());
   ClapTrap::setName(rhs.getName() + "_clap_name");
+  setName(rhs.getName());
   setHitPoints(rhs.getHitPoints());
   setEnergyPoints(rhs.getEnergyPoints());
   setAttackDamage(rhs.getAttackDamage());
@@ -56,7 +56,6 @@ DiamondTrap::DiamondTrap(std::string name)
     << "DiamondTrap constructor called" \
     << " with the name of " << name << std::endl;
   setName(name);
-  ClapTrap::setName(name + "_clap_name");
   setHitPoints(FragTrap::getHitPoints());
   setEnergyPoints(ScavTrap::getEnergyPoints());
   setAttackDamage(FragTrap::getAttackDamage());
